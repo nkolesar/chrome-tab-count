@@ -5,7 +5,8 @@
   "main": "background.js",
   "scripts": {
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "test:coverage:view": "jest --coverage && open coverage/lcov-report/index.html"
   },
   "devDependencies": {
     "jest": "^29.7.0",
