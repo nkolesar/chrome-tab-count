@@ -3,6 +3,12 @@
 ## Overview
 This Chrome extension counts the number of open tabs and windows, displaying the count on the extension's badge. It helps users manage their browsing sessions by providing a quick overview of their tab usage.
 
+## Demo
+![Extension demo showing 11 tabs in 2 windows](images/demo.png)
+
+The screenshot above demonstrates the extension in action. The badge shows "11_2", indicating 11 open tabs across 2 windows. The badge color is orange-yellow, showing that the number of tabs is in the "warning" zone between 10-20 tabs. As you open more tabs, the badge color will gradually shift from yellow to red, providing a visual indicator of your tab usage.
+
+
 ## How It Works
 The extension listens for tab and window events in Chrome. It updates the badge text with the current number of open tabs and windows. The badge color changes based on the number of tabs:
 - Green for up to 10 tabs
