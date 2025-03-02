@@ -51,7 +51,4 @@ chrome.runtime.onStartup.addListener(updateTabCount);
 chrome.runtime.onInstalled.addListener(updateTabCount);
 
 // Call updateTabCount immediately when the service worker starts
-updateTabCount();
-
-// Export for testing
-module.exports = { updateTabCount }; 
+updateTabCount(); 
