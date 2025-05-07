@@ -3,12 +3,13 @@ function updateTabCount() {
   // Get all windows
   chrome.windows.getAll({ windowTypes: ['normal'] }, function(windows) {
     const windowCount = windows.length;
-    
+
     // Get all tabs
-    chrome.tabs.query({}, function(tabs) {
+    chrome.tabs.query({ currentWindow: true }, function(tabs) {
       const tabCount = tabs.length;
+            
       // Format badge text as "windows-tabs"
-      const badgeText = `${tabCount}_${windowCount}`;
+      const badgeText = `${tabCount} ${windowCount}`;
       
       // Make sure badge text is set
       chrome.action.setBadgeText({ text: badgeText });
@@ -55,6 +56,8 @@ chrome.windows.onRemoved.addListener(updateTabCount);
 // Update count when the extension is installed or Chrome is started
 chrome.runtime.onStartup.addListener(updateTabCount);
 chrome.runtime.onInstalled.addListener(updateTabCount);
+chrome.tabs.onActivated.addListener(updateTabCount);
+chrome.windows.onFocusChanged.addListener(updateTabCount);
 
 // Call updateTabCount immediately when the service worker starts
 updateTabCount(); 
